@@ -1,13 +1,13 @@
-# Sample Hardhat Project
+# Factory contract for deploying Fungible Tokens
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+- Built using open zeppelin contracts, and hardhat.
 
-Try running some of the following tasks:
+## Test it out here(https://rinkeby.etherscan.io/address/0x584e25691e760DD75c39d6c58DA0b2329361a61e#code)
+* To create a token based of a 'Contract' use function `CreateRealEstateToken`
+* The function will take 3 parameters `string token name`, `string token symbol`, `number initial supply`
 
-```shell
-npx hardhat help
-npx hardhat test
-GAS_REPORT=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
+### Functionality still needed
+* Created ERC721 token based of Real Estate Contract
+* Metadata for NFT contract stored on IPFS or other decentralized storage
+* Tokens created from NFT, parameters taken from NFT metadata
+* A way to buy tokens

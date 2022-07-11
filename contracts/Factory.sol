@@ -4,18 +4,15 @@ pragma solidity ^0.8.0;
 import "./product.sol";
 
 contract Factory {
-   Greeter[] public GreeterArray;
+   RealEstateToken[] public RealEstateContracts;
 
-   function CreateNewGreeter(string memory _greeting) public {
-     Greeter greeter = new Greeter(_greeting);
-     GreeterArray.push(greeter);
+   function CreateRealEstateToken(string memory name, string memory symbol, uint256 _initialSupply) public {
+     RealEstateToken token = new RealEstateToken(name, symbol, _initialSupply);
+     RealEstateContracts.push(token);
    }
 
-   function gfSetter(uint256 _greeterIndex, string memory _greeting) public {
-     Greeter(address(GreeterArray[_greeterIndex])).setGreeting(_greeting);
-   }
 
-   function gfGetter(uint256 _greeterIndex) public view returns (string memory) {
-    return Greeter(address(GreeterArray[_greeterIndex])).greet();
+   function gfGetter(uint256 _contractIndex) public view returns (uint) {
+    return RealEstateToken(address(RealEstateContracts[_contractIndex])).getSupply();
    }
 }

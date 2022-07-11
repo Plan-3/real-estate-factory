@@ -1,22 +1,17 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.0;
 
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
+contract RealEstateToken is ERC20{
+    uint256 public supply;
 
-contract Greeter {
-    string private greeting;
-
-    constructor(string memory _greeting) {
-        console.log("Deploying a Greeter with greeting:", _greeting);
-        greeting = _greeting;
+    constructor(string memory name, string memory symbol, uint256 _initialSupply) ERC20(name, symbol) {
+        supply = _initialSupply;
     }
 
-    function greet() public view returns (string memory) {
-        return greeting;
+    function getSupply() public view returns (uint256) {
+        return supply;
     }
 
-    function setGreeting(string memory _greeting) public {
-        console.log("Changing greeting from '%s' to '%s'", greeting, _greeting);
-        greeting = _greeting;
-    }
 }
